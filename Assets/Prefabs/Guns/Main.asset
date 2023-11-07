@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8153c14eb6d9c44295f346530c65598, type: 3}
+  m_Name: Main
+  m_EditorClassIdentifier: 
+  shootDist: 100
+  shootRate: 0.5
+  shootDamage: 1
+  currentAmmo: 0
+  maxAmmo: 10
+  model: {fileID: 5571641588984482722, guid: c303a18f1cbdd4156b139b9e5b35d6a9, type: 3}
+  hitEffect: {fileID: 6825353978951167884, guid: b7dde41eb103bac43aa2f17f915049c5, type: 3}
