@@ -46,7 +46,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
             if (playerInRange && !CanSeePlayer())
                 StartCoroutine(Roam());
-            else if (meshAgent.destination != gameManager.instance.player.transform.position)
+            else if (meshAgent.destination != GameManager.instance.player.transform.position)
                 StartCoroutine(Roam());
         }
     }
@@ -97,7 +97,7 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         meshAgent.stoppingDistance = stoppingDistanceOriginal;
 
-        playerDir = gameManager.instance.player.transform.position - headPos.position;
+        playerDir = GameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
 
         Debug.DrawRay(headPos.position, playerDir);
@@ -107,7 +107,7 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             if (hit.collider.CompareTag("Player") && angleToPlayer <= viewConeAngle)
             {
-                meshAgent.SetDestination(gameManager.instance.player.transform.position);
+                meshAgent.SetDestination(GameManager.instance.player.transform.position);
                 if (meshAgent.remainingDistance <= meshAgent.stoppingDistance)
                     FacePlayer();
                 if (!isShooting)
@@ -152,14 +152,14 @@ public class enemyAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             StopAllCoroutines();
-            gameManager.instance.UpdateGameGoal(-1);
+            GameManager.instance.UpdateGameGoal(-1);
             animator.SetBool("Dead", true);
             meshAgent.enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
         }
         else
         {
-            meshAgent.SetDestination(gameManager.instance.player.transform.position);
+            meshAgent.SetDestination(GameManager.instance.player.transform.position);
             StartCoroutine(FlashColor());
             // If you find a damage animation, call it here.
         }

@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static gameManager instance;
+    public static GameManager instance;
 
     [Header(" --- Player Components --- ")]
     [Tooltip("A Game Object that references the Player Prefab. This will be found automatically and doesn't need to be assigned a component.")]

@@ -62,7 +62,7 @@ public class playerController : MonoBehaviour, IDamage, IAmmo
         originalHeight = controller.height;
         playerMaxHP = currentHP;
         UpdatePlayerUI();
-        gameManager.instance.playerFlashUI.gameObject.SetActive(false);
+        GameManager.instance.playerFlashUI.gameObject.SetActive(false);
         zoomOrig = Camera.main.fieldOfView;
     }
 
@@ -70,7 +70,7 @@ public class playerController : MonoBehaviour, IDamage, IAmmo
     {
         ZoomSight();
 
-        if (gameManager.instance.activeMenu == null)
+        if (GameManager.instance.activeMenu == null)
         {
             Movement();
             Crouch();
@@ -212,25 +212,25 @@ public class playerController : MonoBehaviour, IDamage, IAmmo
         UpdatePlayerUI();
 
         if (currentHP <= 0)
-            gameManager.instance.YouLose();
+            GameManager.instance.YouLose();
     }
 
     public void UpdatePlayerUI()
     {
-        gameManager.instance.healthBar.fillAmount = currentHP / playerMaxHP;
+        GameManager.instance.healthBar.fillAmount = currentHP / playerMaxHP;
 
         if (gunList.Count > 0)
         {
-            gameManager.instance.currentAmmoText.text = gunList[selectedGun].currentAmmo.ToString();
-            gameManager.instance.maxAmmoText.text = gunList[selectedGun].maxAmmo.ToString();
+            GameManager.instance.currentAmmoText.text = gunList[selectedGun].currentAmmo.ToString();
+            GameManager.instance.maxAmmoText.text = gunList[selectedGun].maxAmmo.ToString();
         }
     }
 
     IEnumerator PlayerFlashScreenDamage()
     {
-        gameManager.instance.playerFlashUI.gameObject.SetActive(true);
+        GameManager.instance.playerFlashUI.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.1f);
-        gameManager.instance.playerFlashUI.gameObject.SetActive(false);
+        GameManager.instance.playerFlashUI.gameObject.SetActive(false);
     }
 
     IEnumerator PlaySteps()
@@ -268,7 +268,7 @@ public class playerController : MonoBehaviour, IDamage, IAmmo
     {
         controller.enabled = false;
 
-        transform.position = gameManager.instance.playerSpawnPos.transform.position;
+        transform.position = GameManager.instance.playerSpawnPos.transform.position;
         currentHP = playerMaxHP;
         UpdatePlayerUI();
 

@@ -8,9 +8,9 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && gameManager.instance.playerSpawnPos.transform.position != transform.position)
+        if (other.CompareTag("Player") && GameManager.instance.playerSpawnPos.transform.position != transform.position)
         {
-            gameManager.instance.playerSpawnPos.transform.position = transform.position;
+            GameManager.instance.playerSpawnPos.transform.position = transform.position;
 
             StartCoroutine(FlashColor());
         }
@@ -19,9 +19,9 @@ public class Checkpoint : MonoBehaviour
     IEnumerator FlashColor()
     {
         model.material.color = Color.green;
-        gameManager.instance.checkpointNotification.SetActive(true);
+        GameManager.instance.checkpointNotification.SetActive(true);
         yield return new WaitForSeconds(0.4f);
-        gameManager.instance.checkpointNotification.SetActive(false);
+        GameManager.instance.checkpointNotification.SetActive(false);
         model.material.color = Color.white;
     }
 }

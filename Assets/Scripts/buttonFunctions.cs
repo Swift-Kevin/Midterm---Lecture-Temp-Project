@@ -7,13 +7,13 @@ public class buttonFunctions : MonoBehaviour
 {
     public void Resume()
     {
-        gameManager.instance.stateUnpaused();
+        GameManager.instance.stateUnpaused();
     }
 
     public void Restart()
     {
         // Loads the singleton Game Managers instance and runs the stateUnpaused function
-        gameManager.instance.stateUnpaused();
+        GameManager.instance.stateUnpaused();
         // This reloads the scene with the current scenes name
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -26,7 +26,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        gameManager.instance.stateUnpaused();
-        gameManager.instance.playerScript.SpawnPlayer();
+        GameManager.instance.stateUnpaused();
+        GameManager.instance.playerScript.SpawnPlayer();
     }
 }

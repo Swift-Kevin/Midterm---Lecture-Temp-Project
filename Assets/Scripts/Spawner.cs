@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        gameManager.instance.UpdateGameGoal(numToSpawn);
+        GameManager.instance.UpdateGameGoal(numToSpawn);
     }
 
     private void Update()
